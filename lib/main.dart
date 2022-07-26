@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:jojo/pages/homeScreen.dart';
 
 void main(List<String> args) {
-  runApp(MaterialApp(home: MyApp(),));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MyApp(),
+    ),
+  );
 }
 
-
-
 class MyApp extends StatefulWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -18,10 +20,6 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      body: Container(
-        color: Colors.red,
-      ),
-    );
+    return Scaffold(body: HomeScreen());
   }
 }
