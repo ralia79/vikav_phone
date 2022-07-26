@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class homeScreen extends GetxController {
-  var currentPage;
+  var currentPage ;
 
   void serCurrentPage(innerData) {
     this.currentPage = innerData;
