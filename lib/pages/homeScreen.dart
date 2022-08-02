@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/homeScreenController.dart';
-import 'package:jojo/pages/homePage.dart';
 import 'package:jojo/widgets/sidebar.dart';
 
 
 class HomeScreen extends StatelessWidget {
   final controller = Get.put(homeScreen());
-
-  void initState() {
-    controller.serCurrentPage(HomePage());
-  }
 
   @override
   Widget build(BuildContext context) {

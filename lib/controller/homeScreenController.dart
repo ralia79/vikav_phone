@@ -6,8 +6,6 @@ class homeScreen extends GetxController {
 
   void serCurrentPage(innerData) {
     this.currentPage = innerData;
-    print(innerData);
-
     update();
   }
 }

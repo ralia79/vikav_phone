@@ -12,6 +12,7 @@ import 'package:jojo/pages/setting.dart';
 import 'package:jojo/pages/shortCut.dart';
 import 'package:jojo/pages/temp.dart';
 
+// ignore: must_be_immutable
 class sideBar extends StatelessWidget {
   final controller = Get.put(homeScreen());
   final active = Get.put(sideBarController());
