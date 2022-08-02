@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/homeScreenController.dart';
+import 'package:jojo/pages/homePage.dart';
 import 'package:jojo/widgets/sidebar.dart';
+
 
 class HomeScreen extends StatelessWidget {
   final controller = Get.put(homeScreen());
+
+  void initState() {
+    controller.serCurrentPage(HomePage());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +21,13 @@ class HomeScreen extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            width: Get.width * .83,
-            height: Get.height,
-            child: controller.currentPage,
-          ),
+          GetBuilder<homeScreen>(builder: (value) {
+            return Container(
+              width: Get.width * .83,
+              height: Get.height,
+              child: controller.currentPage,
+            );
+          }),
           Container(
             width: Get.width * .15,
             height: Get.height,

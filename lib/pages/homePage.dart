@@ -8,6 +8,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Color(0xFF333132),
+      child: Center(
+        child: Text("Home Page !"),
+      ),
     );
   }
 }
