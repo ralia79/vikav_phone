@@ -51,10 +51,15 @@ class mainPage extends GetxController {
   }
 
   void setShortCutActive(num) {
-    if(favShortCut[num][3] as bool)
+    print(favShortCut);
+    print(num);
+    if (favShortCut[num][3] as bool) {
+      print("yes");
       favShortCut[num][3] = false;
-    else favShortCut[num][3] = true;  
+    } else
+      favShortCut[num][3] = true;
 
+    print(favShortCut);
   }
 
   void setScenarioActive(num) {
