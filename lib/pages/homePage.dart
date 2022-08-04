@@ -18,6 +18,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // show camera
           Container(
             width: Get.width,
             height: Get.height * 0.3,
@@ -155,6 +156,8 @@ class HomePage extends StatelessWidget {
                   ]),
             ),
           ),
+
+          //  show Scenarios
           Container(
               width: Get.width,
               height: Get.height * 0.27,
@@ -201,24 +204,7 @@ class HomePage extends StatelessWidget {
                         ));
                   }))),
 
-          // InkWell(
-          //   onTap: () {
-          //     mainPageController.setShortCutActive(0);
-          //     print(mainPageController.favScenario[0][3]);
-          //   },
-          //   child: Container(
-          //     width: 100.0,
-          //     height: 100.0,
-          //     color: Colors.red,
-          //     child: Obx(() => Icon(
-          //           mainPageController.favScenario[0][1] as IconData,
-          //           color: mainPageController.favScenario[0][3] as bool
-          //               ? Colors.white
-          //               : Colors.yellow,
-          //         )),
-          //   ),
-          // )
-
+          // show shortCuts
           Container(
             width: Get.width,
             height: Get.height * 0.35,
@@ -228,40 +214,42 @@ class HomePage extends StatelessWidget {
               direction: Axis.vertical,
               children:
                   List.generate(mainPageController.favShortCut.length, (index) {
-                return InkWell(
-                  onTap: () {
-                    mainPageController.setShortCutActive(index);
-                  },
-                  child: Container(
-                    width: Get.width / 4,
-                    height: Get.height / 10,
-                    decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 48, 48, 48),
-                        borderRadius: BorderRadius.circular(10.0)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Obx(() => Icon(
-                              mainPageController.favShortCut[index][1]
-                                  as IconData,
-                              color: mainPageController.favShortCut[index][3]
-                                      as bool
-                                  ? Color.fromARGB(255, 255, 204, 0)
-                                  : Color.fromARGB(255, 126, 126, 126),
-                              size: 45,
-                            )),
-                        Text(
-                          mainPageController.favShortCut[index][0] as String,
-                          style: TextStyle(
-                              fontFamily: "IranSans",
-                              fontSize: 16,
-                              color: Colors.white),
-                          textAlign: TextAlign.center,
-                        )
-                      ],
+                return Obx(() {
+                  return InkWell(
+                    onTap: () {
+                      mainPageController.setShortCutActive(index);
+                    },
+                    child: Container(
+                      width: Get.width / 4,
+                      height: Get.height / 10,
+                      decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 48, 48, 48),
+                          borderRadius: BorderRadius.circular(10.0)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Icon(
+                            mainPageController.favShortCut[index][1]
+                                as IconData,
+                            color:
+                                mainPageController.favShortCut[index][3] as bool
+                                    ? Color.fromARGB(255, 255, 204, 0)
+                                    : Color.fromARGB(255, 126, 126, 126),
+                            size: 45,
+                          ),
+                          Text(
+                            mainPageController.favShortCut[index][0] as String,
+                            style: TextStyle(
+                                fontFamily: "IranSans",
+                                fontSize: 16,
+                                color: Colors.white),
+                            textAlign: TextAlign.center,
+                          )
+                        ],
+                      ),
                     ),
-                  ),
-                );
+                  );
+                });
               }),
             ),
           ),

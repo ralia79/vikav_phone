@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jojo/controller/homeScreenController.dart';
 import 'package:jojo/controller/mainPage_controller.dart';
 import 'package:jojo/pages/homePage.dart';
 import 'package:jojo/pages/homeScreen.dart';
+import 'package:jojo/widgets/baseSplashScreen.dart';
 import './widgets/StatefulWrapper.dart';
 
 void main(List<String> args) {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          // fontFamily: GoogleFonts.lato(fontStyle: FontStyle.italic),
+          ),
       home: MyApp(),
     ),
   );
@@ -27,6 +32,6 @@ class MyApp extends StatelessWidget {
           controller.serCurrentPage(HomePage());
           mainPageController.setActiveCamera(0);
         },
-        child: Scaffold(body: HomeScreen()));
+        child: Scaffold(body: splashScreen()));
   }
 }

@@ -51,15 +51,12 @@ class mainPage extends GetxController {
   }
 
   void setShortCutActive(num) {
-    print(favShortCut);
-    print(num);
     if (favShortCut[num][3] as bool) {
-      print("yes");
       favShortCut[num][3] = false;
     } else
       favShortCut[num][3] = true;
 
-    print(favShortCut);
+    this.favShortCut.refresh();
   }
 
   void setScenarioActive(num) {
@@ -67,8 +64,10 @@ class mainPage extends GetxController {
       favScenario[i][3] = false;
     }
     favScenario[num][3] = true;
+    this.favScenario.refresh();
     Future.delayed(Duration(seconds: 1), () {
       favScenario[num][3] = false;
+      this.favScenario.refresh();
     });
   }
 }
