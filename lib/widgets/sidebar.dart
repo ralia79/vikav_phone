@@ -7,6 +7,7 @@ import 'package:jojo/pages/profile.dart';
 import 'package:jojo/pages/camera.dart';
 import 'package:jojo/pages/doorbell.dart';
 import 'package:jojo/pages/log.dart';
+import 'package:jojo/pages/remote.dart';
 import 'package:jojo/pages/scenario.dart';
 import 'package:jojo/pages/setting.dart';
 import 'package:jojo/pages/shortCut.dart';
@@ -84,7 +85,7 @@ class sideBar extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // controller.serCurrentPage(HomePage());
+              controller.serCurrentPage(RemoteScreen());
               active.changeIsActive(3);
             },
             child: Obx(() => Container(

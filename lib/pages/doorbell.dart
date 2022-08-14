@@ -49,22 +49,27 @@ class DoorbellScreen extends StatelessWidget {
                           )),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height / 18,
-                      child: ListView.builder(
+                      child: Obx(() => ListView.builder(
                           shrinkWrap: true,
                           scrollDirection: Axis.horizontal,
                           itemCount: controller.items.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Obx(() => Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: new Container(
-                                    child: Icon(
-                                      controller.items[index],
-                                      size: 30,
-                                      color: Colors.white,
+                            return controller.items[index][1] as bool
+                                ? Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: new Container(
+                                      child: Icon(
+                                        controller.items[index][0] as IconData,
+                                        size: 30,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                  ),
-                                ));
-                          }),
+                                  )
+                                : Container(
+                                    width: 0,
+                                    height: 0,
+                                  );
+                          })),
                     ),
                   )
                 ]),

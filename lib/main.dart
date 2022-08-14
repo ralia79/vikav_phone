@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/homeScreenController.dart';
 import 'package:jojo/controller/mainPage_controller.dart';
@@ -26,6 +27,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StatefulWrapper(
         onInit: () {
+          SystemChrome.setPreferredOrientations(
+              [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
           print("inited");
           controller.serCurrentPage(HomePage());
           mainPageController.setActiveCamera(0);
