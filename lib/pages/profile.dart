@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:jojo/controller/profileController.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final Controller = Get.put(Profile());
+  var items = ['پنل 1', 'پنل 2', 'پنل 3', 'پنل 4', "+"];
+  String dropdownvalue = "پنل 1";
 
   @override
   Widget build(BuildContext context) {
@@ -95,22 +96,22 @@ class ProfileScreen extends StatelessWidget {
                             padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                             child: DropdownButton(
                               // Initial Value
-                              value: Controller.dropdownvalue,
+                              value: dropdownvalue,
 
                               // Down Arrow Icon
                               icon: const Icon(Icons.keyboard_arrow_down),
 
                               // Array list of items
-                              items: Controller.items.map((String items) {
+                              items: items.map((String items) {
                                 return DropdownMenuItem(
-                                  value: items,
-                                  child: Text(items),
+                                  value: "items",
+                                  child: Text("items"),
                                 );
                               }).toList(),
                               // After selecting the desired option,it will
                               // change button value to selected value
                               onChanged: (newValue) {
-                                Controller.setDropDownvalue(newValue);
+                                // setDropDownvalue(newValue);
                               },
                             ),
                           )),
