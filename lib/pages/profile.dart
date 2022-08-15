@@ -3,8 +3,7 @@ import 'package:get/get.dart';
 import 'package:jojo/controller/profileController.dart';
 
 class ProfileScreen extends StatelessWidget {
-  var items = ['پنل 1', 'پنل 2', 'پنل 3', 'پنل 4', "+"];
-  String dropdownvalue = "پنل 1";
+  final controlller = Get.put(Profile());
 
   @override
   Widget build(BuildContext context) {
@@ -92,29 +91,68 @@ class ProfileScreen extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(color: Color(0xFF707070)),
                           borderRadius: BorderRadius.circular(10)),
-                      child: Obx(() => Padding(
-                            padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Obx(
+                          () => DropdownButtonHideUnderline(
                             child: DropdownButton(
-                              // Initial Value
-                              value: dropdownvalue,
-
-                              // Down Arrow Icon
+                              style: TextStyle(color: Colors.white),
+                              dropdownColor: Color(0xFF333132),
+                              value: controlller.dropdownvalue.value,
                               icon: const Icon(Icons.keyboard_arrow_down),
-
-                              // Array list of items
-                              items: items.map((String items) {
+                              items: controlller.items.map((String items) {
                                 return DropdownMenuItem(
-                                  value: "items",
-                                  child: Text("items"),
+                                  value: items,
+                                  child: Text(
+                                    items,
+                                  ),
                                 );
                               }).toList(),
-                              // After selecting the desired option,it will
-                              // change button value to selected value
-                              onChanged: (newValue) {
-                                // setDropDownvalue(newValue);
+                              onChanged: (newdata) {
+                                if (newdata == "+") {
+                                  print("add panel");
+                                  // Fluttertoast.showToast(msg: "msg");
+                                  // Get.off(LoginScreen());
+                                } else {
+                                  Get.defaultDialog(
+                                    title: "هشدار",
+                                    titleStyle: TextStyle(color: Colors.white),
+                                    content: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Icon(
+                                          Icons.question_mark_outlined,
+                                          size: 35.0,
+                                          color: Colors.red,
+                                        ),
+                                        SizedBox(
+                                          height: 20.0,
+                                        ),
+                                        Text(
+                                          "آیا از تغییر پنل خود مطمئن هستید ؟",
+                                          style: TextStyle(color: Colors.white),
+                                        ),
+                                      ],
+                                    ),
+                                    backgroundColor: Color(0xFF333132),
+                                    textCancel: "لغو",
+                                    textConfirm: "مطمئنم !",
+                                    cancelTextColor: Colors.white,
+                                    confirmTextColor: Colors.white,
+                                    buttonColor: Color(0xFF666666),
+                                    onConfirm: () {
+                                      Get.back(closeOverlays: true);
+
+                                      controlller.setDropDownvalue(newdata);
+                                    },
+                                  );
+                                }
                               },
                             ),
-                          )),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   Padding(
