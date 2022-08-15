@@ -17,7 +17,10 @@ class camera extends GetxController {
   }
 
   void setCameraActive(newData) {
+    print(newData);
+
     this.cameraActive.value = newData;
+    print(this.cameraActive);
   }
 
   void setCameras(innerData) {

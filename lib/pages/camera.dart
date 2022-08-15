@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/cameraController.dart';
 import 'package:jojo/pages/SingleCamera.dart';
+import 'package:jojo/widgets/simpleSplash.dart';
+import 'package:jojo/widgets/simpleSplashGo.dart';
 
 class CameraScreen extends StatelessWidget {
   final controller = Get.put(camera());
@@ -38,7 +40,7 @@ class CameraScreen extends StatelessWidget {
                                 .setCameraActive(controller.cameras[index][0]),
                             controller.setCameraActiveDetail(
                                 controller.cameras[index][1]),
-                            Get.off(SingleCamera()),
+                            Get.off(SimpleSplashGo(RoutUrl: SingleCamera())),
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
