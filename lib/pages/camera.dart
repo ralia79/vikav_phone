@@ -31,14 +31,6 @@ class CameraScreen extends StatelessWidget {
                           fit: BoxFit.fill,
                         ),
                       ),
-                      InkWell(
-                          child: Text(
-                            "click me ",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onTap: () => {
-                                print(controller.cameraActive.value),
-                              }),
                       Align(
                         alignment: Alignment.bottomRight,
                         child: InkWell(
