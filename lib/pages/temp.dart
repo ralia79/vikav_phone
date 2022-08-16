@@ -15,6 +15,8 @@ class tempScreen extends StatelessWidget {
         controller.setactiveSection(controller.SectionsData[0][0]);
         controller.setactiveSectionH(controller.SectionsData[0][1]);
         controller.setactiveSectionT(controller.SectionsData[0][2]);
+        controller.setactiveSectionTN(controller.SectionsData[0][3]);
+        controller.changeISOFF(false);
         controller.setActive(0);
       },
       child:
@@ -30,41 +32,42 @@ class tempScreen extends StatelessWidget {
                     children: [
                       Container(
                         width: Get.width,
-                        child: SleekCircularSlider(
-                          innerWidget: (percentage) => Center(
-                              child: Text(
-                            controller.isOff.value
-                                ? "خاموش"
-                                : percentage.toInt().toString() + "°C",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold),
-                          )),
-                          appearance: CircularSliderAppearance(
-                              size: Get.height / 3.5,
-                              customWidths: CustomSliderWidths(
-                                progressBarWidth: 10,
-                                handlerSize: 12,
-                                trackWidth: 8,
-                                shadowWidth: 2,
-                              ),
-                              customColors: CustomSliderColors(
-                                progressBarColor: Color(0xFFFF8C00),
-                                shadowColor: Color(0xFF0000),
-                                dotColor: Color(0xFFFF8C00),
-                                trackColor: Color(0xFF5A5A5A),
+                        child: Obx(() => SleekCircularSlider(
+                              innerWidget: (percentage) => Center(
+                                  child: Text(
+                                controller.isOff.value ||
+                                        controller.activeSectionTN == 20.0
+                                    ? "خاموش"
+                                    : percentage.toInt().toString() + "°C",
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.bold),
                               )),
-                          min: 20,
-                          max: 40,
-                          initialValue: 20,
-                          onChange: (value) => {
-                            if (value == 20)
-                              controller.changeISOFF(true)
-                            else
-                              controller.changeISOFF(false)
-                          },
-                        ),
+                              appearance: CircularSliderAppearance(
+                                  size: Get.height / 3.5,
+                                  customWidths: CustomSliderWidths(
+                                    progressBarWidth: 10,
+                                    handlerSize: 12,
+                                    trackWidth: 8,
+                                    shadowWidth: 2,
+                                  ),
+                                  customColors: CustomSliderColors(
+                                    progressBarColor: Color(0xFFFF8C00),
+                                    shadowColor: Color(0xFF0000),
+                                    dotColor: Color(0xFFFF8C00),
+                                    trackColor: Color(0xFF5A5A5A),
+                                  )),
+                              min: 20,
+                              max: 40,
+                              initialValue: controller.activeSectionTN.value,
+                              onChange: (value) => {
+                                if (value == 20)
+                                  controller.changeISOFF(true)
+                                else
+                                  controller.changeISOFF(false)
+                              },
+                            )),
                       ),
                       Align(
                         alignment: Alignment.center,
@@ -234,6 +237,8 @@ class tempScreen extends StatelessWidget {
                           controller.setactiveSectionT(
                               controller.SectionsData[index][2]);
                           controller.setActive(index);
+                          controller.setactiveSectionTN(
+                              controller.SectionsData[index][3]);
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(0.0),

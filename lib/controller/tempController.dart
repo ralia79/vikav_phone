@@ -5,25 +5,25 @@ import 'package:get/get.dart';
 class temp extends GetxController {
   var SectionsData = [
     //  [ sectionName , tempNow , H Now , T later] ;
-    ["اتاق 1", "20", "10", "30", false],
-    ["اتاق 2", "21", "11", "30", false],
-    ["اتاق 3", "22", "12", "30", false],
-    ["اتاق 4", "23", "13", "30", false],
-    ["اتاق 5", "24", "14", "30", false],
-    ["اتاق 6", "25", "15", "30", false],
-    ["اتاق 7", "26", "16", "30", false],
-    ["اتاق 8", "27", "17", "30", false],
-    ["اتاق 9", "28", "18", "30", false],
-    ["اتاق 10", "29", "19", "30", false],
-    ["اتاق 11", "30", "20", "30", false],
-    ["اتاق 12", "31", "21", "30", false],
-    ["اتاق 13", "32", "22", "30", false],
+    ["اتاق 1", "20", "10", 30.0, false],
+    ["اتاق 2", "21", "11", 20.0, false],
+    ["اتاق 3", "22", "12", 30.0, false],
+    ["اتاق 4", "23", "13", 20.0, false],
+    ["اتاق 5", "24", "14", 30.0, false],
+    ["اتاق 6", "25", "15", 20.0, false],
+    ["اتاق 7", "26", "16", 30.0, false],
+    ["اتاق 8", "27", "17", 20.0, false],
+    ["اتاق 9", "28", "18", 30.0, false],
+    ["اتاق 10", "29", "19", 20.0, false],
+    ["اتاق 11", "30", "20", 30.0, false],
+    ["اتاق 12", "31", "21", 20.0, false],
+    ["اتاق 13", "32", "22", 30.0, false],
   ].obs;
   var isOff = true.obs;
   var activeSection = "".obs;
   var activeSectionH = "".obs;
   var activeSectionT = "".obs;
-  var activeSectionTN = "".obs;
+  var activeSectionTN = 20.0.obs;
   var DecorActive = BoxDecoration(
       borderRadius: BorderRadius.circular(10.0),
       color: Color(0xFF303030),
@@ -56,6 +56,7 @@ class temp extends GetxController {
 
   void setactiveSectionTN(newData) {
     this.activeSectionTN.value = newData;
+    print(this.activeSectionTN.value);
   }
 
   void changeISOFF(newData) {
