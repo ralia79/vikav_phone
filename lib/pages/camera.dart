@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/cameraController.dart';
 import 'package:jojo/pages/SingleCamera.dart';
-import 'package:jojo/widgets/simpleSplash.dart';
 import 'package:jojo/widgets/simpleSplashGo.dart';
 
 class CameraScreen extends StatelessWidget {
