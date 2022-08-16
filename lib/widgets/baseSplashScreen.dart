@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jojo/pages/homeScreen.dart';
 import 'package:jojo/widgets/StatefulWrapper.dart';
 
@@ -17,29 +16,57 @@ class splashScreen extends StatelessWidget {
                   Get.off(HomeScreen()),
                 });
       },
-      child: Container(
-        width: Get.width,
-        height: Get.height,
-        color: Colors.black,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              width: Get.width * .7,
-              height: Get.height * .4,
-              child: Image.asset("assets/images/vikav.png"),
-            ),
-            CircularProgressIndicator(
-              color: Color.fromARGB(255, 244, 155, 54),
-              strokeWidth: 5,
-            ),
-            Text(
-              " خوش آمدید",
-              style: GoogleFonts.lato(
-                  fontStyle: FontStyle.italic, color: Colors.white),
-            ),
-          ],
-        ),
+      child: Stack(
+        fit: StackFit.expand,
+        children: [
+          Container(
+            decoration: BoxDecoration(color: Color.fromARGB(255, 0, 0, 0)),
+          ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/vikav.png",
+                          width: MediaQuery.of(context).size.width / 3,
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Text(
+                          "ویکاو",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 35,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ]),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(
+                        color: Color.fromARGB(255, 254, 140, 0),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 20)),
+                      Text(
+                        "خوش آمدید",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      )
+                    ]),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
