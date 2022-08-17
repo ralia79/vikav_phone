@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:jojo/pages/homeScreen.dart';
+// import 'package:jojo/pages/homeScreen.dart';
+import 'package:jojo/pages/login.dart';
 import 'package:jojo/widgets/StatefulWrapper.dart';
 
 class splashScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class splashScreen extends StatelessWidget {
         Future.delayed(
             Duration(seconds: 3),
             () => {
-                  Get.off(HomeScreen()),
+                  Get.off(LoginScreen()),
                 });
       },
       child: Stack(
