@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/profileController.dart';
+import 'package:jojo/pages/login.dart';
 
 class ProfileScreen extends StatelessWidget {
   final controlller = Get.put(Profile());
@@ -277,7 +278,23 @@ class ProfileScreen extends StatelessWidget {
                               ]),
                         ),
                       ),
-                      onTap: () => {},
+                      onTap: () => {
+                        Get.defaultDialog(
+                            title: "توجه",
+                            middleText:
+                                "آیا از خروج از حساب کاربری خود مطمئنید ؟ ",
+                            middleTextStyle: TextStyle(color: Colors.white),
+                            titleStyle: TextStyle(color: Colors.white),
+                            textCancel: "لغو کردن",
+                            textConfirm: "انجام بده",
+                            buttonColor: Color.fromARGB(61, 78, 78, 78),
+                            cancelTextColor: Colors.red,
+                            confirmTextColor: Colors.green,
+                            backgroundColor: Color(0xFF333132),
+                            onConfirm: () {
+                              Get.off(LoginScreen());
+                            })
+                      },
                     ),
                   ),
                 ],
