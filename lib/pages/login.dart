@@ -95,17 +95,7 @@ class LoginScreen extends StatelessWidget {
                                       fontFamily: "IranSans",
                                     ),
                                   ),
-                                  onChanged: ((value) {
-                                    // if (value == "") {
-                                    //   setState(() {
-                                    //     isFinger = true;
-                                    //   });
-                                    // } else if (value != "") {
-                                    //   setState(() {
-                                    //     isFinger = false;
-                                    //   });
-                                    // }
-                                  }),
+                                  onChanged: ((value) {}),
                                 ),
                               ],
                             ),

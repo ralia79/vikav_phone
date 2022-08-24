@@ -14,6 +14,7 @@ class Login extends GetxController {
   TextEditingController PasswordControler = new TextEditingController();
   LocalAuthentication LocalAuth = LocalAuthentication();
 
+  // ignore: unused_element
   void _getFinger() async {
     bool authinticated = false;
     try {
