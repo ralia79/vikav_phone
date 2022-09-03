@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     return StatefulWrapper(
       onInit: () {
         controller.isFingerSupport();
-          controller.getFinger();
+        controller.getFinger();
       },
       child: WillPopScope(
         onWillPop: () async {
@@ -109,7 +109,9 @@ class LoginScreen extends StatelessWidget {
                                         fontFamily: "IranSans",
                                       ),
                                     ),
-                                    onChanged: ((value) {}),
+                                    onChanged: ((value) {
+                                      controller.isFinger.value = false;
+                                    }),
                                   ),
                                 ],
                               ),
@@ -118,45 +120,46 @@ class LoginScreen extends StatelessWidget {
                           Container(
                             width: widthBase,
                             height: 60.0,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Color(0xFFFF8C00),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: new BorderRadius.circular(18.0),
-                                ),
-                              ),
-                              child: controller.isFinger
-                                  ? Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text(
-                                          "ورود با اثر انگشت",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontFamily: "IranSans",
-                                              fontSize: 15.0),
-                                        ),
-                                        Icon(
-                                          Icons.fingerprint_rounded,
-                                          color: Colors.black,
-                                          size: 40.0,
-                                        )
-                                      ],
-                                    )
-                                  : Text(
-                                      "ورود",
-                                      style: TextStyle(
-                                          fontFamily: "IranSans",
-                                          fontSize: 17.0,
-                                          color: Colors.black),
+                            child: Obx(() => ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    primary: Color(0xFFFF8C00),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          new BorderRadius.circular(18.0),
                                     ),
-                              onPressed: () {
-                                controller.isFinger
-                                    ? controller.getFinger()
-                                    : controller.EnterWithPass();
-                              },
-                            ),
+                                  ),
+                                  child: controller.isFinger.value
+                                      ? Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceAround,
+                                          children: [
+                                            Text(
+                                              "ورود با اثر انگشت",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontFamily: "IranSans",
+                                                  fontSize: 15.0),
+                                            ),
+                                            Icon(
+                                              Icons.fingerprint_rounded,
+                                              color: Colors.black,
+                                              size: 40.0,
+                                            )
+                                          ],
+                                        )
+                                      : Text(
+                                          "ورود",
+                                          style: TextStyle(
+                                              fontFamily: "IranSans",
+                                              fontSize: 17.0,
+                                              color: Colors.black),
+                                        ),
+                                  onPressed: () {
+                                    controller.isFinger.value
+                                        ? controller.getFinger()
+                                        : controller.EnterWithPass();
+                                  },
+                                )),
                           ),
                         ],
                       ),

@@ -10,7 +10,7 @@ import 'package:local_auth_android/local_auth_android.dart';
 
 class Login extends GetxController {
   DateTime timeBackPressed = DateTime.now();
-  bool isFinger = false;
+  RxBool isFinger = false.obs ;
   TextEditingController UsernameControler = new TextEditingController();
   TextEditingController PasswordControler = new TextEditingController();
   LocalAuthentication LocalAuth = LocalAuthentication();
@@ -18,7 +18,8 @@ class Login extends GetxController {
  void getFinger() async {
     bool authinticated = false;
     try {
-      if (await LocalAuth.canCheckBiometrics) {
+      if (await LocalAuth.canCheckBiometrics && await LocalAuth.isDeviceSupported()) {
+        isFinger.value = true;
         authinticated = await LocalAuth.authenticate(
           localizedReason: "scan your fingerprint",
           authMessages: [
@@ -44,8 +45,8 @@ class Login extends GetxController {
               snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
         }
       }
-    } on PlatformException{
-      isFinger = false;
+    } on PlatformException catch (e){
+      isFinger.value = false;
       Get.snackbar(
         "خطا",
         "مشکلی رخ داده است دوباره تلاش کنید",
@@ -53,15 +54,13 @@ class Login extends GetxController {
         colorText: Colors.white,
       );
     }
-    
-    print("authinticated is " + authinticated.toString() );
   }
 
   isFingerSupport() async {
     if (await LocalAuth.canCheckBiometrics) {
-      isFinger = true;
+      isFinger.value = true;
     } else {
-      isFinger = false;
+      isFinger.value = false;
     }
   }
 
