@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
     return StatefulWrapper(
       onInit: () {
         controller.isFingerSupport();
-        controller.getFinger();
+          controller.getFinger();
       },
       child: WillPopScope(
         onWillPop: () async {

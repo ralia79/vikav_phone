@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
@@ -14,10 +15,11 @@ class Login extends GetxController {
   TextEditingController PasswordControler = new TextEditingController();
   LocalAuthentication LocalAuth = LocalAuthentication();
 
-  void getFinger() async {
+  getFinger() async {
     bool authinticated = false;
     try {
       if (await LocalAuth.canCheckBiometrics) {
+        print("object");
         authinticated = await LocalAuth.authenticate(
           localizedReason: "scan your fingerprint",
           authMessages: [
@@ -43,8 +45,7 @@ class Login extends GetxController {
               snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
         }
       }
-    } on PlatformException {
-      print("is not");
+    } on PlatformException{
       isFinger = false;
       Get.snackbar(
         "",
@@ -59,8 +60,10 @@ class Login extends GetxController {
 
   isFingerSupport() async {
     if (await LocalAuth.canCheckBiometrics) {
+      print("is ok");
       isFinger = true;
     } else {
+      print("is not ok ");
       isFinger = false;
     }
   }
