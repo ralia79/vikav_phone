@@ -22,7 +22,7 @@ class _SimpleSplashGoState extends State<SimpleSplashGo> {
     super.initState();
     Timer(
       Duration(milliseconds: 2000),
-      () => Get.off(widget.RoutUrl),
+      () => Get.off(() => widget.RoutUrl)
     );
   }
 

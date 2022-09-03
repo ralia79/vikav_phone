@@ -100,7 +100,7 @@ class SingleCamera extends StatelessWidget {
                         onPressed: () {
                           Controller.setCameraActive("");
                           Controller.setCameraActiveDetail("");
-                          Get.off(SimpleSplash(RoutUrl: HomeScreen()));
+                          Get.off(() => SimpleSplash(RoutUrl: HomeScreen()));
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

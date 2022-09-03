@@ -291,7 +291,7 @@ class ProfileScreen extends StatelessWidget {
                             confirmTextColor: Colors.green,
                             backgroundColor: Color(0xFF333132),
                             onConfirm: () {
-                              Get.off(LoginScreen());
+                             Get.off(() => LoginScreen());
                             })
                       },
                     ),

@@ -14,7 +14,7 @@ class splashScreen extends StatelessWidget {
         Future.delayed(
             Duration(seconds: 3),
             () => {
-                  Get.off(LoginScreen()),
+                  Get.off(() => LoginScreen())
                 });
       },
       child: Stack(

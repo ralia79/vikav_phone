@@ -38,7 +38,7 @@ class Login extends GetxController {
           Get.snackbar("عملیات با موفقیت انجام شد", "لطفا کمی صبر کنید",
               snackPosition: SnackPosition.BOTTOM, colorText: Colors.white );
 
-          Timer(Duration(milliseconds: 1600), (() => {Get.off(HomeScreen())}));
+          Timer(Duration(milliseconds: 1600), (() => { Get.off(() => HomeScreen())}));
         } else {
           Get.snackbar("خطا", "اعتبار سنجی با موفقیت انجام نشد",
               snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
@@ -52,8 +52,9 @@ class Login extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         colorText: Colors.white,
       );
-      return;
     }
+    
+    print("authinticated is " + authinticated.toString() );
   }
 
   isFingerSupport() async {
@@ -73,7 +74,7 @@ class Login extends GetxController {
       // UsernameControler.clear();
       PasswordControler.clear();
 
-      Timer(Duration(milliseconds: 1600), (() => {Get.off(HomeScreen())}));
+      Timer(Duration(milliseconds: 1600), (() => {Get.off(() => HomeScreen())}));
     } else {
       Get.snackbar("", "اعتبار سنجی با موفقیت انجام نشد",
           snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
