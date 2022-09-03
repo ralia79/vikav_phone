@@ -5,6 +5,7 @@ import 'package:jojo/controller/loginController.dart';
 import 'package:jojo/widgets/StatefulWrapper.dart';
 import 'package:local_auth/local_auth.dart';
 
+// ignore: must_be_immutable
 class LoginScreen extends StatelessWidget {
   final controller = Get.put(Login());
   LocalAuthentication LocalAuth = LocalAuthentication();
