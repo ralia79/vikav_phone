@@ -59,8 +59,6 @@ class SingleCamera extends StatelessWidget {
                     height: Get.height * 0.15,
                     child: OutlinedButton(
                         onPressed: () {
-                          print(Controller.cameraActive.value);
-                          print(Controller.cameraActiveDetail.value);
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

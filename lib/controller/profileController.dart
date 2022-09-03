@@ -7,7 +7,6 @@ class Profile extends GetxController {
 
   void setDropDownvalue(innerData) {
     this.dropdownvalue.value = innerData;
-    print(this.dropdownvalue);
   }
 
   void setpicPath(innerData) {

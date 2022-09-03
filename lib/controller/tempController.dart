@@ -56,7 +56,6 @@ class temp extends GetxController {
 
   void setactiveSectionTN(newData) {
     this.activeSectionTN.value = newData;
-    print(this.activeSectionTN.value);
   }
 
   void changeISOFF(newData) {

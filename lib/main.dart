@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
         onInit: () {
           SystemChrome.setPreferredOrientations(
               [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
-          print("inited");
           controller.serCurrentPage(HomePage());
           mainPageController.setActiveCamera(0);
         },

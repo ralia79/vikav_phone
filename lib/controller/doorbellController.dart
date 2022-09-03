@@ -37,7 +37,6 @@ class doorbell extends GetxController {
       }
     } else if (num == 4) {
       if (this.items[3][1] as bool) {
-        print("please wait !");
       } else {
         this.items[3][1] = true;
         this.items.refresh();
@@ -55,7 +54,6 @@ class doorbell extends GetxController {
       }
     } else if (num == 6) {
       if (this.items[5][1] as bool) {
-        print("please wait !");
       } else {
         this.items[5][1] = true;
         this.items.refresh();
@@ -67,10 +65,7 @@ class doorbell extends GetxController {
       }
     }
 
-    print("done !");
-    print(items);
     this.items.refresh();
-    print(items);
   }
 
   void setScreenShotPath(innerData) {

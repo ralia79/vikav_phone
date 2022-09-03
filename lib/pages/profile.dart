@@ -111,7 +111,6 @@ class ProfileScreen extends StatelessWidget {
                               }).toList(),
                               onChanged: (newdata) {
                                 if (newdata == "+") {
-                                  print("add panel");
                                   // Fluttertoast.showToast(msg: "msg");
                                   // Get.off(LoginScreen());
                                 } else {

@@ -15,11 +15,10 @@ class Login extends GetxController {
   TextEditingController PasswordControler = new TextEditingController();
   LocalAuthentication LocalAuth = LocalAuthentication();
 
-  getFinger() async {
+ void getFinger() async {
     bool authinticated = false;
     try {
       if (await LocalAuth.canCheckBiometrics) {
-        print("object");
         authinticated = await LocalAuth.authenticate(
           localizedReason: "scan your fingerprint",
           authMessages: [
@@ -36,34 +35,31 @@ class Login extends GetxController {
           ),
         );
         if (authinticated) {
-          Get.snackbar("", "لطفا کمی صبر کنید",
-              snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
+          Get.snackbar("عملیات با موفقیت انجام شد", "لطفا کمی صبر کنید",
+              snackPosition: SnackPosition.BOTTOM, colorText: Colors.white );
 
           Timer(Duration(milliseconds: 1600), (() => {Get.off(HomeScreen())}));
         } else {
-          Get.snackbar("", "اعتبار سنجی با موفقیت انجام نشد",
+          Get.snackbar("خطا", "اعتبار سنجی با موفقیت انجام نشد",
               snackPosition: SnackPosition.BOTTOM, colorText: Colors.white);
         }
       }
     } on PlatformException{
       isFinger = false;
       Get.snackbar(
-        "",
+        "خطا",
         "مشکلی رخ داده است دوباره تلاش کنید",
         snackPosition: SnackPosition.BOTTOM,
         colorText: Colors.white,
       );
       return;
     }
-    print("Touch authed");
   }
 
   isFingerSupport() async {
     if (await LocalAuth.canCheckBiometrics) {
-      print("is ok");
       isFinger = true;
     } else {
-      print("is not ok ");
       isFinger = false;
     }
   }
