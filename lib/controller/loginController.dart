@@ -46,6 +46,7 @@ class Login extends GetxController {
         }
       }
     } on PlatformException catch (e){
+      print(e);
       isFinger.value = false;
       Get.snackbar(
         "خطا",

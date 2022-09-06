@@ -39,7 +39,7 @@ class CameraScreen extends StatelessWidget {
                                 .setCameraActive(controller.cameras[index][0]),
                             controller.setCameraActiveDetail(
                                 controller.cameras[index][1]),
-                            Get.off(() => SimpleSplashGo(RoutUrl: SingleCamera()))
+                            Get.off(SimpleSplashGo(RoutUrl: SingleCamera()))
                           },
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
