@@ -35,12 +35,12 @@ class temp extends GetxController {
   var isCooler = false.obs;
   var coolerImg = "assets/images/cooler_deactive.png".obs;
   var heaterImg = "assets/images/radiator_active.png".obs;
-  var heaterType = "assets/images/Humidity/ac_hot_off.png".obs;
-  var coolerType = "assets/images/Humidity/ac_hot_off.png".obs;
-  var DryType = "assets/images/Humidity/ac_hot_off.png".obs;
-  var fanType = "assets/images/Humidity/ac_hot_off.png".obs;
-  var flapType = "assets/images/Humidity/ac_hot_off.png".obs;
-  var fanSpeed = "assets/images/Humidity/ac_hot_off.png".obs;
+  var heaterType = "assets/images/ac_hot_off.png".obs;
+  var coolerType = "assets/images/ac_hot_off.png".obs;
+  var DryType = "assets/images/ac_hot_off.png".obs;
+  var fanType = "assets/images/ac_hot_off.png".obs;
+  var flapType = "assets/images/ac_hot_off.png".obs;
+  var fanSpeed = "assets/images/ac_hot_off.png".obs;
   
 
   void coolerActive() {
