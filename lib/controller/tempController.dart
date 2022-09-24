@@ -35,13 +35,63 @@ class temp extends GetxController {
   var isCooler = false.obs;
   var coolerImg = "assets/images/cooler_deactive.png".obs;
   var heaterImg = "assets/images/radiator_active.png".obs;
+
   var heaterType = "assets/images/ac_hot_off.png".obs;
-  var coolerType = "assets/images/ac_hot_off.png".obs;
-  var DryType = "assets/images/ac_hot_off.png".obs;
-  var fanType = "assets/images/ac_hot_off.png".obs;
-  var flapType = "assets/images/ac_hot_off.png".obs;
-  var fanSpeed = "assets/images/ac_hot_off.png".obs;
-  
+  var coolerType = "assets/images/ac_cold_off.png".obs;
+  var DryType = "assets/images/ac_dry_off.png".obs;
+  var fanType = "assets/images/ac_fan_off.png".obs;
+  var flapType = "assets/images/ac_blade_off.png".obs;
+  var fanSpeed = "assets/images/ac_speed_1.png".obs;
+
+  void AC_fanSpeed_Active() {
+    if (fanSpeed.value == "assets/images/ac_speed_1.png") {
+      fanSpeed.value = "assets/images/ac_speed_2.png";
+    } else if (fanSpeed.value == "assets/images/ac_speed_2.png") {
+      fanSpeed.value = "assets/images/ac_speed_3.png";
+    } else if (fanSpeed.value == "assets/images/ac_speed_3.png") {
+      fanSpeed.value = "assets/images/ac_speed_1.png";
+    }
+  }
+
+  void AC_flap_Active() {
+    if (flapType.value == "assets/images/ac_blade_off.png") {
+      flapType.value = "assets/images/ac_blade_on.png";
+    } else {
+      flapType.value = "assets/images/ac_blade_off.png";
+    }
+  }
+
+  void AC_fan_Active() {
+    if (fanType.value == "assets/images/ac_fan_off.png") {
+      fanType.value = "assets/images/ac_fan_on.png";
+    } else {
+      fanType.value = "assets/images/ac_fan_off.png";
+    }
+  }
+
+  void AC_DRY_Active() {
+    if (DryType.value == "assets/images/ac_dry_off.png") {
+      DryType.value = "assets/images/ac_dry_on.png";
+    } else {
+      DryType.value = "assets/images/ac_dry_off.png";
+    }
+  }
+
+  void AC_Cool_Active() {
+    if (coolerType.value == "assets/images/ac_cold_off.png") {
+      coolerType.value = "assets/images/ac_cold_on.png";
+    } else {
+      coolerType.value = "assets/images/ac_cold_off.png";
+    }
+  }
+
+  void AC_Hot_Active() {
+    if (heaterType.value == "assets/images/ac_hot_off.png") {
+      heaterType.value = "assets/images/ac_hot_on.png";
+    } else {
+      heaterType.value = "assets/images/ac_hot_off.png";
+    }
+  }
 
   void coolerActive() {
     this.coolerImg.value = "assets/images/cooler_active.png";
