@@ -187,9 +187,6 @@ class tempScreen extends StatelessWidget {
                                         ),
                                         onTap: () => {
                                           controller.coolerActive(),
-                                          // Fluttertoast.showToast(
-                                          //     msg:
-                                          //         "این قابلیت در این نسخه در دسترس نمیباشد")
                                         },
                                       ),
                                       Text(
