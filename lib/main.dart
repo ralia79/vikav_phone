@@ -12,9 +12,7 @@ void main(List<String> args) {
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          // fontFamily: GoogleFonts.lato(fontStyle: FontStyle.italic),
-          ),
+      theme: ThemeData(),
       home: MyApp(),
     ),
   );
