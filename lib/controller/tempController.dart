@@ -32,7 +32,21 @@ class temp extends GetxController {
     borderRadius: BorderRadius.circular(10.0),
     color: Color(0xFF303030),
   );
+  var isCooler = false.obs;
+  var coolerImg = "assets/images/cooler_deactive.png".obs;
+  var heaterImg = "assets/images/radiator_active.png".obs;
 
+
+void coolerActive(){
+  this.coolerImg.value = "assets/images/cooler_active.png";
+  this.heaterImg.value = "assets/images/radiator_deactive.png";
+  this.isCooler.value = true;
+}
+void heaterActive(){
+  this.coolerImg.value = "assets/images/cooler_deactive.png";
+  this.heaterImg.value = "assets/images/radiator_active.png";
+  this.isCooler.value = false;
+}
   void setActive(num) {
     for (int i = 0; i < this.SectionsData.length; i++) {
       this.SectionsData[i][4] = false;
