@@ -35,18 +35,26 @@ class temp extends GetxController {
   var isCooler = false.obs;
   var coolerImg = "assets/images/cooler_deactive.png".obs;
   var heaterImg = "assets/images/radiator_active.png".obs;
+  var heaterType = "assets/images/Humidity/ac_hot_off.png".obs;
+  var coolerType = "assets/images/Humidity/ac_hot_off.png".obs;
+  var DryType = "assets/images/Humidity/ac_hot_off.png".obs;
+  var fanType = "assets/images/Humidity/ac_hot_off.png".obs;
+  var flapType = "assets/images/Humidity/ac_hot_off.png".obs;
+  var fanSpeed = "assets/images/Humidity/ac_hot_off.png".obs;
+  
 
+  void coolerActive() {
+    this.coolerImg.value = "assets/images/cooler_active.png";
+    this.heaterImg.value = "assets/images/radiator_deactive.png";
+    this.isCooler.value = true;
+  }
 
-void coolerActive(){
-  this.coolerImg.value = "assets/images/cooler_active.png";
-  this.heaterImg.value = "assets/images/radiator_deactive.png";
-  this.isCooler.value = true;
-}
-void heaterActive(){
-  this.coolerImg.value = "assets/images/cooler_deactive.png";
-  this.heaterImg.value = "assets/images/radiator_active.png";
-  this.isCooler.value = false;
-}
+  void heaterActive() {
+    this.coolerImg.value = "assets/images/cooler_deactive.png";
+    this.heaterImg.value = "assets/images/radiator_active.png";
+    this.isCooler.value = false;
+  }
+
   void setActive(num) {
     for (int i = 0; i < this.SectionsData.length; i++) {
       this.SectionsData[i][4] = false;

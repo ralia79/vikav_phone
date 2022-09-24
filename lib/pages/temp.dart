@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:jojo/controller/tempController.dart';
 import 'package:jojo/widgets/StatefulWrapper.dart';
@@ -37,10 +36,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.light_mode_outlined,
-                            color: Colors.grey,
-                          ),
+                          child: Image.asset(controller.heaterType.value),
                         ),
                         Container(
                           width: 50,
@@ -48,10 +44,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.icecream,
-                            color: Colors.grey,
-                          ),
+                          child:Image.asset(controller.coolerType.value),
                         ),
                         Container(
                           width: 50,
@@ -59,10 +52,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
+                          child: Image.asset(controller.DryType.value),
                         ),
                         Container(
                           width: 50,
@@ -70,10 +60,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
+                          child: Image.asset(controller.fanType.value),
                         ),
                         Container(
                           width: 50,
@@ -81,10 +68,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
+                          child: Image.asset(controller.flapType.value),
                         ),
                         Container(
                           width: 50,
@@ -92,10 +76,7 @@ class tempScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Icon(
-                            Icons.person,
-                            color: Colors.grey,
-                          ),
+                          child: Image.asset(controller.fanSpeed.value),
                         ),
                       ],
                     ),
