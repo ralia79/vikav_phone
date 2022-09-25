@@ -19,6 +19,20 @@ class temp extends GetxController {
     ["اتاق 12", "31", "21", 20.0, false],
     ["اتاق 13", "32", "22", 30.0, false],
   ].obs;
+  var categury = [
+    ["پذیرایی", true],
+    ["اتاق خواب 1", false],
+    ["اتاق خواب 2", false],
+    ["طبقه 1", false],
+    ["پارکینگ", false],
+    ["استخر", false],
+    ["پارکینگ", false],
+    ["درب ها", false],
+    ["درب ها", false],
+    ["درب ها", false],
+    ["درب ها", false],
+    ["درب ها", false],
+  ].obs;
   var isOff = true.obs;
   var activeSection = "".obs;
   var activeSectionH = "".obs;
@@ -35,13 +49,25 @@ class temp extends GetxController {
   var isCooler = false.obs;
   var coolerImg = "assets/images/cooler_deactive.png".obs;
   var heaterImg = "assets/images/radiator_active.png".obs;
-
   var heaterType = "assets/images/ac_hot_off.png".obs;
   var coolerType = "assets/images/ac_cold_off.png".obs;
   var DryType = "assets/images/ac_dry_off.png".obs;
   var fanType = "assets/images/ac_fan_off.png".obs;
   var flapType = "assets/images/ac_blade_off.png".obs;
   var fanSpeed = "assets/images/ac_speed_1.png".obs;
+
+  void changeCategoryActive(num) {
+    for (int i = 0; i < this.categury.length; i++) {
+      this.categury[i][1] = false;
+    }
+    if (this.categury[num][1] as bool) {
+      this.categury[num][1] = false;
+    } else {
+      this.categury[num][1] = true;
+    }
+
+    this.categury.refresh();
+  }
 
   void AC_fanSpeed_Active() {
     if (fanSpeed.value == "assets/images/ac_speed_1.png") {
