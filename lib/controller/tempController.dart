@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 class temp extends GetxController {
   var SectionsData = [
     //  [ sectionName , tempNow , H Now , T later] ;
-    ["اتاق 1", "20", "10", 30.0, false],
     ["اتاق 2", "21", "11", 20.0, false],
     ["اتاق 3", "22", "12", 30.0, false],
     ["اتاق 4", "23", "13", 20.0, false],
@@ -15,6 +14,7 @@ class temp extends GetxController {
     ["اتاق 8", "27", "17", 20.0, false],
     ["اتاق 9", "28", "18", 30.0, false],
     ["اتاق 10", "29", "19", 20.0, false],
+    ["اتاق اتاق اتاق اتاق 1", "20", "10", 30.0, false],
     ["اتاق 11", "30", "20", 30.0, false],
     ["اتاق 12", "31", "21", 20.0, false],
     ["اتاق 13", "32", "22", 30.0, false],
@@ -55,6 +55,7 @@ class temp extends GetxController {
   var fanType = "assets/images/ac_fan_off.png".obs;
   var flapType = "assets/images/ac_blade_off.png".obs;
   var fanSpeed = "assets/images/ac_speed_1.png".obs;
+  var isActive = true.obs;
 
   void changeCategoryActive(num) {
     for (int i = 0; i < this.categury.length; i++) {
@@ -70,17 +71,17 @@ class temp extends GetxController {
   }
 
   void AC_fanSpeed_Active() {
-    if (fanSpeed.value == "assets/images/ac_speed_1.png") {
+    if (fanSpeed.value == "assets/images/ac_speed_1.png" && this.isCooler.value) {
       fanSpeed.value = "assets/images/ac_speed_2.png";
-    } else if (fanSpeed.value == "assets/images/ac_speed_2.png") {
+    } else if (fanSpeed.value == "assets/images/ac_speed_2.png" && this.isCooler.value) {
       fanSpeed.value = "assets/images/ac_speed_3.png";
-    } else if (fanSpeed.value == "assets/images/ac_speed_3.png") {
+    } else if (fanSpeed.value == "assets/images/ac_speed_3.png" && this.isCooler.value) {
       fanSpeed.value = "assets/images/ac_speed_1.png";
     }
   }
 
   void AC_flap_Active() {
-    if (flapType.value == "assets/images/ac_blade_off.png") {
+    if (flapType.value == "assets/images/ac_blade_off.png" && this.isCooler.value) {
       flapType.value = "assets/images/ac_blade_on.png";
     } else {
       flapType.value = "assets/images/ac_blade_off.png";
@@ -88,32 +89,50 @@ class temp extends GetxController {
   }
 
   void AC_fan_Active() {
-    if (fanType.value == "assets/images/ac_fan_off.png") {
+    if (fanType.value == "assets/images/ac_fan_off.png" && this.isCooler.value) {
       fanType.value = "assets/images/ac_fan_on.png";
+      heaterType.value = "assets/images/ac_hot_off.png";
+      coolerType.value = "assets/images/ac_cold_off.png";
+      DryType.value = "assets/images/ac_dry_off.png";
+      isActive.value = false;
     } else {
       fanType.value = "assets/images/ac_fan_off.png";
+      isActive.value = true;
     }
   }
 
   void AC_DRY_Active() {
-    if (DryType.value == "assets/images/ac_dry_off.png") {
+    if (DryType.value == "assets/images/ac_dry_off.png" && this.isCooler.value) {
       DryType.value = "assets/images/ac_dry_on.png";
+      heaterType.value = "assets/images/ac_hot_off.png";
+      coolerType.value = "assets/images/ac_cold_off.png";
+      fanType.value = "assets/images/ac_fan_off.png";
+      isActive.value = false;
     } else {
       DryType.value = "assets/images/ac_dry_off.png";
+      isActive.value = true;
     }
   }
 
   void AC_Cool_Active() {
-    if (coolerType.value == "assets/images/ac_cold_off.png") {
+    isActive.value = true;
+    if (coolerType.value == "assets/images/ac_cold_off.png" && this.isCooler.value) {
       coolerType.value = "assets/images/ac_cold_on.png";
+      heaterType.value = "assets/images/ac_hot_off.png";
+      DryType.value = "assets/images/ac_dry_off.png";
+      fanType.value = "assets/images/ac_fan_off.png";
     } else {
       coolerType.value = "assets/images/ac_cold_off.png";
     }
   }
 
   void AC_Hot_Active() {
-    if (heaterType.value == "assets/images/ac_hot_off.png") {
+    isActive.value = true;
+    if (heaterType.value == "assets/images/ac_hot_off.png" && this.isCooler.value) {
       heaterType.value = "assets/images/ac_hot_on.png";
+      coolerType.value = "assets/images/ac_cold_off.png";
+      DryType.value = "assets/images/ac_dry_off.png";
+      fanType.value = "assets/images/ac_fan_off.png";
     } else {
       heaterType.value = "assets/images/ac_hot_off.png";
     }
@@ -129,6 +148,11 @@ class temp extends GetxController {
     this.coolerImg.value = "assets/images/cooler_deactive.png";
     this.heaterImg.value = "assets/images/radiator_active.png";
     this.isCooler.value = false;
+    heaterType.value = "assets/images/ac_hot_off.png";
+    coolerType.value = "assets/images/ac_cold_off.png";
+    DryType.value = "assets/images/ac_dry_off.png";
+    fanType.value = "assets/images/ac_fan_off.png";
+    flapType.value = "assets/images/ac_blade_off.png";
   }
 
   void setActive(num) {
