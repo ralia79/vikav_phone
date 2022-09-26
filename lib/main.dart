@@ -31,6 +31,6 @@ class MyApp extends StatelessWidget {
           controller.serCurrentPage(HomePage());
           mainPageController.setActiveCamera(0);
         },
-        child: Scaffold(body: splashScreen()));
+        child: Scaffold(resizeToAvoidBottomInset: false,body: splashScreen()));
   }
 }

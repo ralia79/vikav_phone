@@ -18,6 +18,7 @@ class LogScreen extends StatelessWidget {
               itemCount: controller.logs.length,
               physics: BouncingScrollPhysics(
                   parent: AlwaysScrollableScrollPhysics()),
+              padding: EdgeInsets.only(top: 0),
               itemBuilder: (context, index) {
                 return Card(
                   color: Color.fromARGB(255, 0, 0, 0),
