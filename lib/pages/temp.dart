@@ -23,7 +23,7 @@ class tempScreen extends StatelessWidget {
         Obx(
           () => Column(
             children: [
-              Container( 
+              Container(
                   width: Get.width,
                   height: Get.height * 0.3,
                   child: Column(
@@ -42,8 +42,8 @@ class tempScreen extends StatelessWidget {
                                     Text(
                                       "°C  دما  ",
                                       style: TextStyle(
-                                          fontSize: 18.0,
-                                          color: Color(0xFFA5A5A5)),
+                                          fontSize: 20.0,
+                                          color: Color(0xFFFF8C00)),
                                     ),
                                     Obx(() => Text(
                                           controller.activeSectionT.value,
@@ -105,6 +105,7 @@ class tempScreen extends StatelessWidget {
                                         initialValue:
                                             controller.activeSectionTN.value,
                                         onChange: (value) => {
+                                          controller.activeSectionTN.value = value,
                                           if (value == 20)
                                             controller.changeISOFF(true)
                                           else
@@ -118,8 +119,8 @@ class tempScreen extends StatelessWidget {
                                     Text(
                                       "٪  رطوبت  ",
                                       style: TextStyle(
-                                          fontSize: 18.0,
-                                          color: Color(0xFFA5A5A5)),
+                                          fontSize: 20.0,
+                                          color: Color(0xFFFF8C00)),
                                     ),
                                     Obx(() => Text(
                                           controller.activeSectionH.value,
@@ -191,119 +192,117 @@ class tempScreen extends StatelessWidget {
                     ],
                   )),
               Container(
-                      margin: EdgeInsets.only(top: 10.0),
-                      width: Get.width,
-                      child: Column(
+                  margin: EdgeInsets.only(top: 10.0),
+                  width: Get.width,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_Hot_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child:
-                                      Image.asset(controller.heaterType.value),
-                                ),
+                          InkWell(
+                            onTap: () {
+                              controller.AC_Hot_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_Cool_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child:
-                                      Image.asset(controller.coolerType.value),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_DRY_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Image.asset(controller.DryType.value),
-                                ),
-                              ),
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_fan_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Image.asset(controller.fanType.value),
-                                ),
-                              ),
-                            ],
+                              child: Image.asset(controller.heaterType.value),
+                            ),
                           ),
-                          SizedBox(
-                            height: 30.0,
+                          InkWell(
+                            onTap: () {
+                              controller.AC_Cool_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Image.asset(controller.coolerType.value),
+                            ),
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_flap_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Image.asset(controller.flapType.value),
-                                ),
+                          InkWell(
+                            onTap: () {
+                              controller.AC_DRY_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
-                              Container(
-                                width: Get.width / 2.5,
-                                height: Get.height / 15,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    primary: Color(0xFF333131),
-                                  ),
-                                  child: Text(
-                                    "انجام بده",
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                  onPressed: () {},
-                                ),
+                              child: Image.asset(controller.DryType.value),
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              controller.AC_fan_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
                               ),
-                              InkWell(
-                                onTap: () {
-                                  controller.AC_fanSpeed_Active();
-                                },
-                                child: Container(
-                                  width: 35,
-                                  height: 35,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Image.asset(controller.fanSpeed.value),
-                                ),
-                              ),
-                            ],
+                              child: Image.asset(controller.fanType.value),
+                            ),
                           ),
                         ],
-                      ))
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              controller.AC_flap_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Image.asset(controller.flapType.value),
+                            ),
+                          ),
+                          Container(
+                            width: Get.width / 2.5,
+                            height: Get.height / 15,
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xFF333131),
+                              ),
+                              child: Text(
+                                "انجام بده",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                              onPressed: () {},
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () {
+                              controller.AC_fanSpeed_Active();
+                            },
+                            child: Container(
+                              width: 35,
+                              height: 35,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                              child: Image.asset(controller.fanSpeed.value),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ))
             ],
           ),
         ),

@@ -77,6 +77,8 @@ class temp extends GetxController {
       fanSpeed.value = "assets/images/ac_speed_3.png";
     } else if (fanSpeed.value == "assets/images/ac_speed_3.png" && this.isCooler.value) {
       fanSpeed.value = "assets/images/ac_speed_1.png";
+    }else {
+      fanSpeed.value = "assets/images/ac_speed_off.png";
     }
   }
 
@@ -141,6 +143,7 @@ class temp extends GetxController {
   void coolerActive() {
     this.coolerImg.value = "assets/images/cooler_active.png";
     this.heaterImg.value = "assets/images/radiator_deactive.png";
+    fanSpeed.value = "assets/images/ac_speed_1.png";
     this.isCooler.value = true;
   }
 
@@ -148,11 +151,13 @@ class temp extends GetxController {
     this.coolerImg.value = "assets/images/cooler_deactive.png";
     this.heaterImg.value = "assets/images/radiator_active.png";
     this.isCooler.value = false;
+    this.isActive.value = true;
     heaterType.value = "assets/images/ac_hot_off.png";
     coolerType.value = "assets/images/ac_cold_off.png";
     DryType.value = "assets/images/ac_dry_off.png";
     fanType.value = "assets/images/ac_fan_off.png";
     flapType.value = "assets/images/ac_blade_off.png";
+    fanSpeed.value = "assets/images/ac_speed_off.png";
   }
 
   void setActive(num) {
