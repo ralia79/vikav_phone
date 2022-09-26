@@ -15,43 +15,59 @@ class SettingScreen extends StatelessWidget {
         padding: EdgeInsets.only(top: 0.0),
         physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
         children: [
-          Container(
-            width: Get.width,
-            height: 70,
-            decoration: Controller.decor,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: Get.width * .5,
-                    height: 100,
-                    child: TextField(
-                      // maxLength: 15,
-                      keyboardType: TextInputType.number,
-                      textAlign: TextAlign.right,
-                      textDirection: TextDirection.rtl,
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                      decoration: InputDecoration(
+          InkWell(
+            onTap: () {
+              Get.defaultDialog(
+                title: "توجه",
+                titleStyle: TextStyle(color: Colors.white),
+                textCancel: "لغو کردن",
+                textConfirm: "انجام بده",
+                buttonColor: Color.fromARGB(61, 78, 78, 78),
+                cancelTextColor: Colors.red,
+                confirmTextColor: Colors.green,
+                backgroundColor: Color(0xFF333132),
+                onConfirm: () {
+                  // do something
+                },
+                content: Container(
+                  width: Get.width * .7,
+                  margin: EdgeInsets.all(10.0),
+                  height: 100,
+                  child: TextField(
+                    keyboardType: TextInputType.number,
+                    textAlign: TextAlign.right,
+                    textDirection: TextDirection.rtl,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                    decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(bottom: 2, right: 10.0),
                         hintTextDirection: TextDirection.rtl,
                         hintText: "ip پنل را وارد کنید",
                         hintStyle: Controller.text1,
                         enabledBorder: Controller.borderOut,
-                        focusedBorder: Controller.borderOut
-                      ),
+                        focusedBorder: Controller.borderOut),
+                  ),
+                ),
+              );
+            },
+            child: Container(
+              width: Get.width,
+              height: 70,
+              decoration: Controller.decor,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Text(
+                      "Ip پنل مرکزی ",
+                      textDirection: TextDirection.rtl,
+                      style: TextStyle(color: Colors.white),
                     ),
-                  ),
-                  Text(
-                    "Ip پنل مرکزی : ",
-                    textDirection: TextDirection.rtl,
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
+                    Icon(Icons.dns_outlined , size: 30.0, color: Color.fromARGB(255, 119, 119, 119),)
+                  ],
+                ),
               ),
             ),
           ),

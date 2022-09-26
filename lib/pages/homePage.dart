@@ -160,7 +160,7 @@ class HomePage extends StatelessWidget {
           //  show Scenarios
           Container(
               width: Get.width,
-              height: Get.height * 0.27,
+              height: Get.height * 0.3,
               child: Wrap(
                   spacing: Get.width / 25,
                   runSpacing: Get.width / 25,
