@@ -39,6 +39,7 @@ dependencies:
   fluttertoast: ^8.0.9
   sleek_circular_slider: ^2.0.1
   local_auth: ^2.0.2
+  flutter_vlc_player: ^6.0.5
 
 dev_dependencies:
   flutter_test:
